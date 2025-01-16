@@ -65,8 +65,8 @@ develop: $(MNEXEC) $(MANPAGES)
 # 	Perhaps we should link these as well
 	install $(MNEXEC) $(BINDIR)
 	install $(MANPAGES) $(MANDIR)
-	$(PYTHON) -m pip uninstall -y mininet || true
-	$(PYTHON) -m pip install -e . --no-binary :all:
+	$(PYTHON) -m pip uninstall -y --break-system-packages mininet  || true
+	$(PYTHON) -m pip install -e . --no-binary --break-system-packages :all:
 
 man: $(MANPAGES)
 
